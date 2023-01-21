@@ -1,0 +1,69 @@
+.background {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    background-color: #171717;
+
+    overflow: hidden;
+}
+
+.circles {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    margin: 0;
+
+    height: 100%;
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+.circles li {
+    position: absolute;
+
+    list-style-type: none;
+    background: #232323;
+
+    bottom: -150%;
+
+    animation: rise ease-in-out infinite;
+}
+
+.circles li:hover {
+    animation-play-state: paused;
+}
+
+
+@keyframes rise {
+    0% {
+        bottom: -50%;
+        opacity: 0.3;
+        border-radius: 20%;
+
+        transform: rotate(0deg);
+    }
+    60% {
+        border-radius: 40%;
+        transform: rotate(480deg);
+    }
+
+    95% {
+        opacity: 0.1;
+    }
+    100% {
+        bottom: 100%;
+        transform: rotate(720deg);
+        border-radius: 10%;
+        opacity: 0;
+
+    }
+}

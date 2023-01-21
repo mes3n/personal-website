@@ -1,0 +1,72 @@
+.bubble {
+    position: absolute;
+
+    width: 30vw;
+    height: 30vw;
+
+    border-radius: 45%;
+    padding: 5vh;
+
+    opacity: 0;
+
+    background: #0006;
+
+    animation: pulse2 3s ease-in-out forwards;
+}
+
+.bubble.spin {
+    background: #0006;
+    animation: pulse1 1s ease-in-out forwards, spin 6s ease-in infinite;
+}
+
+@keyframes pulse1 {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse2 {
+    25% {
+        opacity: 0;
+        text-shadow: 2px 2px 4px#ffff;
+    }
+
+    75% {
+        opacity: 1;
+        text-shadow: 1px 1px 4px#ffff;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.bubble h1 {
+    font-size: 2vw;
+}
+
+.bubble p {
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size: 1vw;
+}
+
+@media (max-width: 600px) {
+    .bubble h1 {
+        font-size: 4vw;
+    }
+
+    .bubble p {
+        font-size: 2vw;
+    }
+}

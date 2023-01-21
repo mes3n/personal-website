@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+import Background from './components/Background';
+import MainPage from './components/MainPage';
+import NavBar from './components/NavBar'
+
+
+class App extends React.Component<{}, { page: string }> {
+
+    constructor(props: ReactElement) {
+        super(props)
+
+        this.state = {
+            page: window.location.pathname === '/' ? 'home' : window.location.pathname.replace('/', '')
+        }
+    }
+
+    updatePage = (page: string) => {
+        if (page === this.state.page)
+            return
+        this.setState({page: page})
+        window.history.replaceState(null, '', '/' + (page !== 'home' ? page : '') )
+    }
+
+    render(): React.ReactNode {
+        return (
+            <div className='app'>
+                <Background />
+                <MainPage page={this.state.page}/>
+                <NavBar update={this.updatePage}/>
+            </div>
+        );
+    }
 }
 
-export default App;
+export default App

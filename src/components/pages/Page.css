@@ -1,0 +1,25 @@
+.page {
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bolder;
+
+    position: absolute;
+
+    top: 80px;
+    left: 0;
+
+    width: 100%;
+    height: calc(100% - 80px);
+
+    color: white;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .page {
+        top: 50px;
+        height: calc(100% - 50px);
+
+    }
+}
